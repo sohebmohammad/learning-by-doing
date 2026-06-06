@@ -1,5 +1,8 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
+
+app.use(cors())
 
 // 1. Basic GET Route
 app.get('/', (req, res) => {
@@ -21,7 +24,7 @@ app.get("/streaming", async (req, res) => {
     res.flushHeaders();
 
     for (let chunk of streaming) {
-        res.write(`data: ${chunk}\n\n`); // SSE format: "data: <message>\n\n"
+        res.write(`${chunk}\n\n`); // SSE format: "data: <message>\n\n"
         await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
