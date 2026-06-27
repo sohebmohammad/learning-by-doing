@@ -10,5 +10,5 @@ normalFun(1,2,3)
 const arrowFun = (...numbers) =>{
     console.log(numbers)
 }
-
+// ...name (... called rest parameter) it will take values and stores in the array
 arrowFun(10,20, 40)
