@@ -61,3 +61,10 @@ function counter(){
 let adder = new counter();
 adder.incrementValue();//1
 adder.incrementValue();//2
+
+
+// Disadvantages of Closures in JavaScript 😅
+// Overconsumption of memory or memory leaks can happen.
+// For example, the closed-over-variable will not be garbage collected. This is because, even if the outer function has run, the returned inner function still has a reference to the closed-over-variable.
+
+// Note: Garbage collection basically removes unused variables from the memory automatically.
