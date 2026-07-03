@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Loop Practice</title>
+</svg>
+</head>
+<body>
+    <h1>Js Event Loop Practice</h1>
+<script>
+    function third() {
+        // debugger;
+        console.log('3 - third() runs (sync)');
+    }
+
+    function second() {
+        // debugger;
+        console.log('2 - second() runs (sync)');
+        third();
+    }
+
+    function first() {
+        // debugger;
+        console.log('1 - first() runs (sync)');
+        second();
+    }
+
+    // This shows the call stack: first → second → third
+    first();
+
+    // Microtask - runs after sync, before setTimeout
+    Promise.resolve().then(() => {
+        // debugger;
+        console.log('4 - Promise microtask runs');
+    });
+
+    // Macrotask - runs last
+    setTimeout(() => {
+        // debugger;
+        console.log('5 - setTimeout macrotask runs');
+    }, 0);
+</script>
+</body>
+</html>

@@ -19,3 +19,6 @@ const employee = employees.find((emp)=>{
 })
 
 console.log(employee) //{ name: 'John Cena', age: 34 }
+
+// Even though there is "John Carte" in the list, the find method will stop when it finds the first match. So it will not return the object with the name "John Carte".
+
